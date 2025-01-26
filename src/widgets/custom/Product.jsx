@@ -63,19 +63,29 @@ export function Product({ product }) {
         setShowAlert(true);
         setTimeout(() => setShowAlert(false), 3000);
     };
+
+    // Placeholder cuando no hay producto
+    if (!product) {
+        return (
+            <div className="mt-8 flex justify-center items-center h-64 w-full bg-gray-100 rounded-lg p-4 border">
+                <Typography variant="h4" color="gray" className="text-center">
+                    Producto no disponible
+                </Typography>
+            </div>
+        );
+    }
+
     return (
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Product Image */}
             <div className="relative">
                 {imageError ? (
-                    <>
-                        <div className='h-full w-full'>
-                            <ImagePlacehoderSkeleton />
-                        </div>
-                    </>
+                    <div className='h-full w-full'>
+                        <ImagePlacehoderSkeleton />
+                    </div>
                 ) : (
                     <img
-                        src={product.images.front}
+                        src={product.images?.front}
                         alt={product.name}
                         className="h-full w-full object-cover"
                         onError={() => setImageError(true)}

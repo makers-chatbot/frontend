@@ -2,6 +2,7 @@ import { Button, Card, CardBody, CardFooter, CardHeader, Typography } from "@mat
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { ImagePlacehoderSkeleton } from "../skeleton";
+import PropTypes from 'prop-types';
 
 export function RelatedProducts({ relatedProducts }) {
     const [imageError, setImageError] = useState([]);
@@ -9,7 +10,7 @@ export function RelatedProducts({ relatedProducts }) {
     return (
         <section className="mt-16">
             <Typography variant="h4" color="blue-gray" className="mb-6">
-                Productos Relacionados
+                Related Products
             </Typography>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {relatedProducts.map((relatedProduct, index) => (
@@ -28,7 +29,7 @@ export function RelatedProducts({ relatedProducts }) {
                                     </div>
                                 ) :
                                     <img
-                                        src={relatedProduct.images.front}
+                                        src={relatedProduct.images?.front}
                                         alt={relatedProduct.name}
                                         className="w-full h-48 object-cover"
                                         onError={() => setImageError(prev => [...prev, relatedProduct.id])}
@@ -50,7 +51,7 @@ export function RelatedProducts({ relatedProducts }) {
                                 className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
                                 onClick={() => navigate(`/products/${relatedProduct.id}`)}
                             >
-                                Ver Detalles
+                                View Details
                             </Button>
                         </CardFooter>
                     </Card>
@@ -59,5 +60,18 @@ export function RelatedProducts({ relatedProducts }) {
         </section>
     )
 }
+
+RelatedProducts.propTypes = {
+    relatedProducts: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            price: PropTypes.number.isRequired,
+            images: PropTypes.shape({
+                front: PropTypes.string.isRequired
+            }).isRequired
+        })
+    ).isRequired
+};
 
 export default RelatedProducts

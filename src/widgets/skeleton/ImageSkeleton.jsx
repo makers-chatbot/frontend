@@ -1,4 +1,3 @@
-import { Typography } from "@material-tailwind/react";
 
 export function ImagePlacehoderSkeleton() {
     return (
@@ -22,3 +21,4 @@ export function ImagePlacehoderSkeleton() {
         </div>
     );
 }
+

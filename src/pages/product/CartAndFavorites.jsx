@@ -309,11 +309,11 @@ export function CartAndFavorites() {
 
                     <div className="flex items-center justify-between">
                         <Typography variant="h3" className="text-gray-800 font-bold">
-                            Mi Carrito
+                            My Cart
                         </Typography>
                         <div className="bg-blue-50 px-4 py-2 rounded-full">
                             <Typography className="text-blue-800 font-medium">
-                                {cart.length} {cart.length === 1 ? 'Producto' : 'Productos'}
+                                {cart.length} {cart.length === 1 ? 'Product' : 'Products'}
                             </Typography>
                         </div>
                     </div>
