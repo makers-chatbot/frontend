@@ -85,7 +85,7 @@ export function Product({ product }) {
                     </div>
                 ) : (
                     <img
-                        src={product.images.front}
+                        src={product.images?.front}
                         alt={product.name}
                         className="h-full w-full object-cover"
                         onError={() => setImageError(true)}
