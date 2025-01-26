@@ -50,9 +50,17 @@ export function Homepage() {
             {/* Featured Products */}
             <section className="container mx-auto py-16 px-4 md:px-8">
                 <Typography variant="h2" color="gray" className="text-center font-bold mb-12">
-                    Featured Products
+                    Recommended For You
                 </Typography>
-                <RecommendedProducts />
+                <div>
+                    <div className="flex items-center gap-2 mb-6">
+                        <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                        <Typography variant="h3" color="gray" className="font-semibold">
+                            Highly Recommended
+                        </Typography>
+                    </div>
+                    <RecommendedProducts preferenceLevel="high" />
+                </div>
             </section>
 
             {/* Testimonials */}

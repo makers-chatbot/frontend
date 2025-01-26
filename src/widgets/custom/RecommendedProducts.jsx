@@ -4,31 +4,50 @@ import { Spinner } from "@material-tailwind/react";
 import { ErrorBlock } from "../blocks";
 import { useEffect, useState } from "react";
 import { useSortedCategories } from '../../hooks/usePreferredCategories';
+import PropTypes from 'prop-types';
 
-export function RecommendedProducts() {
-
+export function RecommendedProducts({ preferenceLevel = "high" }) {
     const [recommendedProducts, setRecommendedProducts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const { categories, isLoading } = useSortedCategories();
-    console.log("Categories sorted: ", categories);
 
     useEffect(() => {
         const fetchProducts = async () => {
             setLoading(true);
             setError(null);
             try {
-                const response = (!isLoading && categories) ? await getProductsByCategory(categories[0].category) : await getProducts();
+                let response;
+                if (!isLoading && categories && categories.length > 0) {
+                    // Get category based on preference level
+                    let targetCategory;
+                    switch (preferenceLevel) {
+                        case "high":
+                            targetCategory = categories[0]?.category;
+                            break;
+                        case "medium":
+                            targetCategory = categories[Math.floor(categories.length / 2)]?.category;
+                            break;
+                        case "low":
+                            targetCategory = categories[categories.length - 1]?.category;
+                            break;
+                        default:
+                            targetCategory = categories[0]?.category;
+                    }
+                    response = await getProductsByCategory(targetCategory);
+                } else {
+                    response = await getProducts();
+                }
                 setRecommendedProducts(response.data);
             } catch (error) {
                 console.error('Failed to fetch products:', error);
-                setError(`Error al cargar los productos: ${error.message}`);
+                setError(`Error loading products: ${error.message}`);
             } finally {
                 setLoading(false);
             }
         };
         fetchProducts();
-    }, [categories, isLoading]);
+    }, [categories, isLoading, preferenceLevel]);
 
     if (loading) {
         return <Spinner />;
@@ -45,5 +64,9 @@ export function RecommendedProducts() {
         </div>
     );
 }
+
+RecommendedProducts.propTypes = {
+    preferenceLevel: PropTypes.oneOf(['high', 'medium', 'low'])
+};
 
 export default RecommendedProducts;
