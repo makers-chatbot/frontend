@@ -68,10 +68,10 @@ export function ProductDetail() {
                     <>
                         <Breadcrumbs className="bg-transparent">
                             <Link to="/">
-                                Inicio
+                                Home
                             </Link>
                             <Link to="/products">
-                                Productos
+                                Products
                             </Link>
                             <Link to="">
                                 {product.name}

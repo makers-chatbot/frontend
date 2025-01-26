@@ -32,10 +32,10 @@ export function ProductPage() {
                 <Card shadow={true} className="bg-blue-800 text-white p-8 mb-8 rounded-2xl bg">
                     <CardBody className="text-center">
                         <Typography variant="h2" className="font-bold">
-                            Explora Nuestra Colección de Tecnología
+                            Explore Our Technology Collection
                         </Typography>
                         <Typography variant="paragraph" className="mt-2 text-lg">
-                            Encuentra los últimos modelos en tecnología de alta gama
+                            Find the Latest High-End Technology Models
                         </Typography>
                     </CardBody>
                 </Card>
@@ -46,21 +46,21 @@ export function ProductPage() {
 
                     <Input
                         type="text"
-                        label="Buscar productos"
+                        label="Search products"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         icon={searchQuery ? <XMarkIcon className="h-5 w-5 text-gray-500" onClick={() => setSearchQuery("")} /> : <MagnifyingGlassIcon className="h-5 w-5 text-gray-500" />}
                     />
 
-                    {/* Ordenar por */}
+                    {/* Sort by */}
                     <Select
-                        label="Ordenar por"
+                        label="Sort by"
                         value={sortOption}
                         onChange={(value) => setSortOption(value)}
                         className="lg:w-full md:w-1/4"
                     >
-                        <Option value="price-asc">Precio: Menor a Mayor</Option>
-                        <Option value="price-desc">Precio: Mayor a Menor</Option>
+                        <Option value="price-asc">Price: Low to High</Option>
+                        <Option value="price-desc">Price: High to Low</Option>
                     </Select>
                 </div>
 

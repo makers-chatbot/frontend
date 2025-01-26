@@ -1,8 +1,6 @@
-import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Navbar,
-  Button,
   Typography,
   Input,
   IconButton,
@@ -12,6 +10,7 @@ import {
   ShoppingCartIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
+import PropTypes from 'prop-types';
 
 function NavList() {
   const token = sessionStorage.getItem("token");
@@ -104,7 +103,7 @@ export function AppNavbar({ sticky = true }) {
         <div className="flex items-center justify-between text-blue-gray-900">
           <Link to="/">
             <Typography className="mr-4 cursor-pointer py-1.5 font-bold text-xl">
-              TechStore
+              Makers Tech
             </Typography>
           </Link>
           <div className="flex items-center gap-4">
@@ -114,7 +113,7 @@ export function AppNavbar({ sticky = true }) {
             <div className="flex items-center gap-x-1">
               <Input
                 type="search"
-                placeholder="Buscar productos..."
+                placeholder="Search products..."
                 className="!border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
                 labelProps={{
                   className: "hidden",
@@ -150,5 +149,13 @@ export function AppNavbar({ sticky = true }) {
     </>
   );
 }
+
+AppNavbar.propTypes = {
+  sticky: PropTypes.bool
+};
+
+AppNavbar.defaultProps = {
+  sticky: true
+};
 
 export default AppNavbar;

@@ -7,44 +7,44 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div>
                         <Typography variant="h6" color="blue-gray" className="mb-3">
-                            TechStore
+                            Makers Tech
                         </Typography>
                         <Typography className="text-blue-gray-600">
-                            Tu tienda de confianza para productos tecnológicos de alta calidad.
+                            Your trusted store for high-quality technology products.
                         </Typography>
                     </div>
                     <div>
                         <Typography variant="h6" color="blue-gray" className="mb-3">
-                            Enlaces Rápidos
+                            Quick Links
                         </Typography>
                         <ul className="space-y-2">
                             <li>
                                 <a href="#" className="text-blue-gray-600 hover:text-blue-500">
-                                    Sobre Nosotros
+                                    About Us
                                 </a>
                             </li>
                             <li>
                                 <a href="#" className="text-blue-gray-600 hover:text-blue-500">
-                                    Contacto
+                                    Contact
                                 </a>
                             </li>
                             <li>
                                 <a href="#" className="text-blue-gray-600 hover:text-blue-500">
-                                    Política de Privacidad
+                                    Privacy Policy
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div>
                         <Typography variant="h6" color="blue-gray" className="mb-3">
-                            Contacto
+                            Contact
                         </Typography>
                         <Typography className="text-blue-gray-600">
-                            Email: info@techstore.com
+                            Email: info@makerstech.com
                             <br />
-                            Teléfono: (123) 456-7890
+                            Phone: (123) 456-7890
                             <br />
-                            Dirección: Calle 5 # 123
+                            Address: 123 Main St
                         </Typography>
                     </div>
                 </div>

@@ -10,7 +10,7 @@ export function RelatedProducts({ relatedProducts }) {
     return (
         <section className="mt-16">
             <Typography variant="h4" color="blue-gray" className="mb-6">
-                Productos Relacionados
+                Related Products
             </Typography>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {relatedProducts.map((relatedProduct, index) => (
@@ -51,7 +51,7 @@ export function RelatedProducts({ relatedProducts }) {
                                 className="bg-blue-gray-900/10 text-blue-gray-900 shadow-none hover:shadow-none hover:scale-105 focus:shadow-none focus:scale-105 active:scale-100"
                                 onClick={() => navigate(`/products/${relatedProduct.id}`)}
                             >
-                                Ver Detalles
+                                View Details
                             </Button>
                         </CardFooter>
                     </Card>

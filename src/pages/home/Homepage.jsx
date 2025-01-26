@@ -11,28 +11,28 @@ export function Homepage() {
             <div className="w-full bg-gradient-to-r from-blue-700 to-purple-800 text-white text-center py-32">
                 <div className="">
                     <Typography variant="h1" color="white" className="font-extrabold tracking-tight">
-                        Bienvenido a <span className="text-blue-300">TechStore</span>
+                        Welcome to <span className="text-blue-300">Makers Tech</span>
                     </Typography>
                     <Typography variant="lead" color="white" className="mt-4 font-light max-w-xl mx-auto">
-                        Explora la mejor tecnología y descubre ofertas exclusivas para ti.
+                        Explore the best technology and discover exclusive offers for you.
                     </Typography>
                     <Button color="light-blue" size="lg" className="mt-8 font-semibold" onClick={() => navigate("/products")}>
-                        Ver Productos
+                        View Products
                     </Button>
                 </div>
             </div>
 
-            {/* Características de la Tienda */}
+            {/* Store Features */}
             <section className="py-16 px-4 md:px-8 bg-white">
                 <div className="container mx-auto text-center">
                     <Typography variant="h2" color="gray" className="font-bold mb-10">
-                        ¿Por qué elegir TechStore?
+                        Why Choose Makers Tech?
                     </Typography>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
-                            { title: "Tecnología Avanzada", description: "Ofrecemos los últimos lanzamientos y tecnología de punta." },
-                            { title: "Precios Competitivos", description: "Los mejores precios del mercado, accesibles para todos." },
-                            { title: "Entrega Rápida", description: "Envío inmediato para que disfrutes de tu compra cuanto antes." }
+                            { title: "Advanced Technology", description: "We offer the latest releases and cutting-edge technology." },
+                            { title: "Competitive Prices", description: "The best market prices, accessible to everyone." },
+                            { title: "Fast Delivery", description: "Immediate shipping so you can enjoy your purchase right away." }
                         ].map((feature, index) => (
                             <div key={index} className="p-6 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                                 <Typography variant="h4" color="blue-gray" className="mb-2 font-semibold">
@@ -47,25 +47,25 @@ export function Homepage() {
                 </div>
             </section>
 
-            {/* Productos Destacados */}
+            {/* Featured Products */}
             <section className="container mx-auto py-16 px-4 md:px-8">
                 <Typography variant="h2" color="gray" className="text-center font-bold mb-12">
-                    Productos Destacados
+                    Featured Products
                 </Typography>
                 <RecommendedProducts />
             </section>
 
-            {/* Testimonios */}
+            {/* Testimonials */}
             <section className="bg-gray-100 py-16 px-4 md:px-8">
                 <div className="container mx-auto text-center">
                     <Typography variant="h2" color="gray" className="font-bold mb-10">
-                        Opiniones de Nuestros Clientes
+                        Customer Reviews
                     </Typography>
                     <div className="flex flex-col md:flex-row gap-6 justify-center items-stretch">
                         {[
-                            { name: "Carlos G.", feedback: "La mejor experiencia de compra. Productos de alta calidad y excelente servicio." },
-                            { name: "Ana M.", feedback: "Los precios son imbatibles y la entrega fue rapidísima. ¡Totalmente recomendado!" },
-                            { name: "Juan P.", feedback: "Una tienda confiable con una gran variedad de productos tecnológicos." }
+                            { name: "Charles G.", feedback: "Best shopping experience. High-quality products and excellent service." },
+                            { name: "Anna M.", feedback: "Unbeatable prices and super fast delivery. Highly recommended!" },
+                            { name: "John P.", feedback: "A reliable store with a great variety of tech products." }
                         ].map((testimonial, index) => (
                             <div key={index} className="bg-white p-6 rounded-lg shadow-lg max-w-sm">
                                 <Typography variant="h5" color="blue-gray" className="font-semibold mb-2">

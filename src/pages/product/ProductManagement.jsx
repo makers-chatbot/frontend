@@ -239,7 +239,7 @@ export function ProductManagement() {
             {/* Botón para crear nuevo producto */}
             <div className="flex justify-between items-center mb-6">
                 <Typography variant="h4" color="blue-gray">
-                    Gestión de Productos
+                    Product Management
                 </Typography>
                 <div className="flex items-center gap-4">
                     <Menu placement="bottom-end">
@@ -249,7 +249,7 @@ export function ProductManagement() {
                                 className="flex items-center gap-2"
                             >
                                 <TagIcon className="h-5 w-5" />
-                                Categorías
+                                Categories
                                 <ChevronDownIcon className="h-4 w-4" />
                             </Button>
                         </MenuHandler>
@@ -259,7 +259,7 @@ export function ProductManagement() {
                                 className="flex items-center gap-2"
                             >
                                 <PlusIcon className="h-4 w-4" />
-                                Nueva Categoría
+                                New Category
                             </MenuItem>
                             <hr className="my-2" />
                             {categories.map((cat) => (
@@ -289,7 +289,7 @@ export function ProductManagement() {
                         onClick={handleCreateOpen}
                     >
                         <PlusIcon className="h-5 w-5" />
-                        Nuevo Producto
+                        New Product
                     </Button>
                 </div>
             </div>
@@ -314,7 +314,7 @@ export function ProductManagement() {
                                 />
                             )}
                             <Chip
-                                value={product.stock > 0 ? "En Stock" : "Sin Stock"}
+                                value={product.stock > 0 ? "In Stock" : "Out of Stock"}
                                 color={product.stock > 0 ? "green" : "red"}
                                 className="absolute top-2 right-2"
                             />
@@ -325,7 +325,7 @@ export function ProductManagement() {
                                     {product.name}
                                 </Typography>
                                 <Typography variant="small" color="gray">
-                                    Stock: {product.stock} unidades
+                                    Stock: {product.stock} units
                                 </Typography>
                                 <Typography variant="h6" color="blue">
                                     ${product.price}
