@@ -46,6 +46,8 @@ export function ProductCard({ product }) {
         } catch (error) {
             console.log("Error al darle interes: ", error);
         } finally {
+
+            console.log("navegando")
             navigate(`/products/${product.id}`);
         }
     }
@@ -58,7 +60,7 @@ export function ProductCard({ product }) {
                     <ImagePlacehoderSkeleton />
                 ) : (
                     <img
-                        src={product.images.front}
+                        src={product.images?.front}
                         alt={product.name}
                         className="h-full w-full object-cover"
                         onError={() => setImageError(true)}

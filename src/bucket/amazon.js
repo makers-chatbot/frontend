@@ -5,6 +5,7 @@ const bucketName = "sid2-images"
 const accessKeyId = ""
 const secretAccessKey = ""
 
+
 const s3 = new AWS.S3({
     region,
     accessKeyId,
@@ -13,6 +14,11 @@ const s3 = new AWS.S3({
 })
 
 export async function generateUploadURL() {
+
+
+    console.log("Variables de entorno: ", import.meta.env.ACCESS_KEY)
+    console.log("Variables de entorno: ",   import.meta.env.SECRET_ACCESS_KEY)
+
     const imageName = "image-" + Date.now()
 
     const params = {

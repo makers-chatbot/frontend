@@ -11,11 +11,10 @@ import config from "./chatbot/config";
 import MessageParser from "./chatbot/MessageParser";
 import ActionProvider from "./chatbot/ActionProvider";
 import "react-chatbot-kit/build/main.css";
-import { Dashboard } from "./pages/dashboard";
 import DashboardLayout from "./layout/DashboardLayout";
 
 function App() {
-  const [openChat, setOpenChat] = useState(true);
+  const [openChat, setOpenChat] = useState(false);
 
   return (
     <div className="flex flex-col items-center justify-center ">
@@ -24,7 +23,7 @@ function App() {
         <Route path="/products/*" element={<ProductLayout />} />
         <Route path="/auth/*" element={<AuthLayout />} />
         <Route path="/contracts/*" element={<ContractLayout />} />
-        <Route path="/layout/*" element={<DashboardLayout />} />
+        <Route path="/dashboard/*" element={<DashboardLayout />} />
       </Routes>
       <button
         className="fixed bottom-10 right-24  w-12 h-12"

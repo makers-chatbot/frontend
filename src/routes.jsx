@@ -76,10 +76,9 @@ export const routes = [
 
     layout:"dashboard",
     pages: [
-
       {
         name: "dashboard",
-        path: "/dashboard",
+        path: "/",
         element: <Dashboard/>
       }
 

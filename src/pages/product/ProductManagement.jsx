@@ -307,7 +307,7 @@ export function ProductManagement() {
                                 </>
                             ) : (
                                 <img
-                                    src={product.images.front}
+                                    src={product.images?.front || "" }
                                     alt={product.name}
                                     className="w-full h-full object-cover rounded-lg"
                                     onError={() => setImageError(prev => [...prev, product.id])}

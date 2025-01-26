@@ -28,7 +28,7 @@ export function RelatedProducts({ relatedProducts }) {
                                     </div>
                                 ) :
                                     <img
-                                        src={relatedProduct.images.front}
+                                        src={relatedProduct.images?.front}
                                         alt={relatedProduct.name}
                                         className="w-full h-48 object-cover"
                                         onError={() => setImageError(prev => [...prev, relatedProduct.id])}
