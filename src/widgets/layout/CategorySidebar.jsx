@@ -3,6 +3,17 @@ import { Button, Spinner, Typography } from "@material-tailwind/react";
 import { getCategories } from "../../services";
 import { ErrorBlock } from "../blocks";
 
+// Translation map for categories
+const translateCategory = (spanishName) => {
+    const translations = {
+        'Computacion': 'Computing',
+        'Impresion': 'Printing',
+        'Movil': 'Mobile',
+        'All': 'All'
+    };
+    return translations[spanishName] || spanishName;
+};
+
 export const CategorySidebar = ({ setCategory }) => {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -15,7 +26,7 @@ export const CategorySidebar = ({ setCategory }) => {
                 const response = await getCategories();
                 setCategories(response.data);
             } catch (err) {
-                setError("Error al cargar las categorías");
+                setError("Error loading categories");
             } finally {
                 setLoading(false);
             }
@@ -44,7 +55,7 @@ export const CategorySidebar = ({ setCategory }) => {
                     className="bg-transparent text-black hover:bg-indigo-700 hover:text-white text-left"
                     onClick={() => setCategory("All")}
                 >
-                    All
+                    {translateCategory("All")}
                 </Button>
                 {categories && categories.map((category, index) => (
                     <Button
@@ -53,7 +64,7 @@ export const CategorySidebar = ({ setCategory }) => {
                         className="bg-transparent text-black hover:bg-indigo-700 hover:text-white text-left"
                         onClick={() => setCategory(category.name)}
                     >
-                        {category.name}
+                        {translateCategory(category.name)}
                     </Button>
                 ))}
             </div>
