@@ -2,6 +2,7 @@ import { Button, Card, CardBody, CardFooter, CardHeader, Typography } from "@mat
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { ImagePlacehoderSkeleton } from "../skeleton";
+import PropTypes from 'prop-types';
 
 export function RelatedProducts({ relatedProducts }) {
     const [imageError, setImageError] = useState([]);
@@ -59,5 +60,18 @@ export function RelatedProducts({ relatedProducts }) {
         </section>
     )
 }
+
+RelatedProducts.propTypes = {
+    relatedProducts: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            price: PropTypes.number.isRequired,
+            images: PropTypes.shape({
+                front: PropTypes.string.isRequired
+            }).isRequired
+        })
+    ).isRequired
+};
 
 export default RelatedProducts

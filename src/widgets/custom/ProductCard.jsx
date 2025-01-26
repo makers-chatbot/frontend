@@ -7,20 +7,30 @@ import {
     Typography,
 } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
-
 import { useState } from "react";
 import { ImagePlacehoderSkeleton } from "../skeleton";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { postInteraction } from "../../services/InteractionServices";
+import PropTypes from 'prop-types';
+
+ProductCard.propTypes = {
+    product: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        category: PropTypes.string.isRequired,
+        images: PropTypes.shape({
+            front: PropTypes.string
+        })
+    }).isRequired
+};
 
 export function ProductCard({ product }) {
     const navigate = useNavigate();
-
     const user = useSelector((state) => state.user.value);
-    console.log("user", user);
+    const [imageError, setImageError] = useState(false);
 
     async function handleNavigate() {
-
         if (!user) {
             return;
         }
@@ -42,7 +52,6 @@ export function ProductCard({ product }) {
             if (response.status > 199 && response.status < 300) {
                 console.log("Interes dado correctamente");
             }
-
         } catch (error) {
             console.log("Error al darle interes: ", error);
         } finally {
@@ -52,11 +61,13 @@ export function ProductCard({ product }) {
         }
     }
 
-    const [imageError, setImageError] = useState(false);
+    // Check if we should show placeholder image
+    const shouldShowPlaceholder = imageError || !product.images || !product.images.front;
+
     return (
         <Card className="shadow-lg hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center">
             <CardHeader color="white" className="relative h-[80%] w-[80%] mt-4">
-                {imageError ? (
+                {shouldShowPlaceholder ? (
                     <ImagePlacehoderSkeleton />
                 ) : (
                     <img
@@ -76,7 +87,7 @@ export function ProductCard({ product }) {
                     {product.name}
                 </Typography>
                 <Typography color="gray" className="text-md">
-                    ${product.price}
+                    ${new Intl.NumberFormat('en-US').format(product.price)}
                 </Typography>
             </CardBody>
             <CardFooter className="flex justify-center">
@@ -86,7 +97,7 @@ export function ProductCard({ product }) {
                     fullWidth
                     onClick={handleNavigate}
                 >
-                    Ver Detalles
+                    View Details
                 </Button>
             </CardFooter>
         </Card>

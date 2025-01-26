@@ -10,7 +10,7 @@ export function RecommendedProducts() {
     const [recommendedProducts, setRecommendedProducts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const { categories, isLoading, error: categroyError, refetch } = useSortedCategories();
+    const { categories, isLoading } = useSortedCategories();
     console.log("Categories sorted: ", categories);
 
     useEffect(() => {
@@ -20,14 +20,15 @@ export function RecommendedProducts() {
             try {
                 const response = (!isLoading && categories) ? await getProductsByCategory(categories[0].category) : await getProducts();
                 setRecommendedProducts(response.data);
-            } catch (err) {
-                setError("Error al cargar los productos");
+            } catch (error) {
+                console.error('Failed to fetch products:', error);
+                setError(`Error al cargar los productos: ${error.message}`);
             } finally {
                 setLoading(false);
             }
         };
         fetchProducts();
-    }, [categories]);
+    }, [categories, isLoading]);
 
     if (loading) {
         return <Spinner />;
