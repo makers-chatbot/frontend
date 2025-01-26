@@ -1,5 +1,6 @@
 import { SignIn, SignUp } from "./pages/auth";
 import { DeliveryCertificates, RentalContracts } from "./pages/contract";
+import { Dashboard } from "./pages/dashboard";
 import { Homepage } from "./pages/home";
 import { CartAndFavorites, ProductDetail, ProductManagement, ProductPage } from "./pages/product";
 
@@ -77,8 +78,9 @@ export const routes = [
     pages: [
 
       {
-        name: "dashboard"
-
+        name: "dashboard",
+        path: "/dashboard",
+        element: <Dashboard/>
       }
 
 
