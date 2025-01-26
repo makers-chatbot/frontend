@@ -6,8 +6,7 @@ import {
     Card,
     CardBody,
     IconButton,
-    CardHeader,
-    CardFooter,
+
     SpeedDialHandler,
     SpeedDial
 } from "@material-tailwind/react";
@@ -16,7 +15,7 @@ import { CategorySidebar } from "../../widgets/layout";
 import { ProductList } from "../../widgets/custom";
 import { MagnifyingGlassIcon, PlusIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
-import { useSortedCategories } from "../../hooks/usePreferredCategories";
+
 
 export function ProductPage() {
     const [category, setCategory] = useState("All");
