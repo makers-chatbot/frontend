@@ -1,22 +1,26 @@
 import { createChatBotMessage } from "react-chatbot-kit";
 
-
-const botname = "AIda"
+const botName = "AIda";
 
 const config = {
   initialMessages: [
     createChatBotMessage(
-      `Hola, soy AIda, estoy para servirte ¿en qué puedo ayudarte?`
+      `Hi! I'm ${botName}, how can I help you with our computer inventory?`
     ),
   ],
-  botname: botname,
-
+  botName,
   customStyles: {
-
+    chatButton: {
+      backgroundColor: "#2898ec",
+    },
     chatContainer: {
-      backgroundColor: "", 
+      backgroundColor: "#fff",
     },
   },
+  state: {
+    messages: [],
+  },
+  widgets: [],
 };
 
 export default config;
