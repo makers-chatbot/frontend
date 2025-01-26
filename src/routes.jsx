@@ -71,6 +71,21 @@ export const routes = [
       },
     ],
   },
+  {
+
+    layout:"dashboard",
+    pages: [
+
+      {
+        name: "dashboard"
+
+      }
+
+
+    ]
+
+
+  }
 ];
 
 export default routes;
